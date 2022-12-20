@@ -1,0 +1,34 @@
+Learn to code — free 3,000-hour curriculum
+
+JANUARY 3, 2020
+/
+#GIT
+Gitignore Explained: What is Gitignore and How to Add it to Your Repo
+Gitignore Explained: What is Gitignore and How to Add it to Your Repo
+The .gitignore file is a text file that tells Git which files or folders to ignore in a project.
+
+A local .gitignore file is usually placed in the root directory of a project. You can also create a global .gitignore file and any entries in that file will be ignored in all of your Git repositories.
+
+To create a local .gitignore file, create a text file and name it .gitignore (remember to include the . at the beginning). Then edit this file as needed. Each new line should list an additional file or folder that you want Git to ignore.
+
+The entries in this file can also follow a matching pattern.
+
+* is used as a wildcard match
+/ is used to ignore pathnames relative to the .gitignore file
+# is used to add comments to a .gitignore file
+This is an example of what the .gitignore file could look like:
+
+# Ignore Mac system files
+.DS_store
+
+# Ignore node_modules folder
+node_modules
+
+# Ignore all text files
+*.txt
+
+# Ignore files related to API keys
+.env
+
+# Ignore SASS config files
+.sass-cache
