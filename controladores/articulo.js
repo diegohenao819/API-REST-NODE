@@ -37,7 +37,7 @@ const crear = (req, res) => {
     if (error || !articuloGuardado) {
       return res.status(400).json({
         status: "error",
-        mensaje: "El articulo no se ha guardado",
+        mensaje: "El articulo no se ha guardado (funcion crear)" + error,
       });
     }
     return res.status(200).json({

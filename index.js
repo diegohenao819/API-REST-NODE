@@ -1,4 +1,5 @@
 const { conexion } = require("./basedatos/conexion");
+const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
 // Conectando a base de datos a través del archivo "Conexión.js"
@@ -20,20 +21,21 @@ app.use(express.urlencoded({ extended: true })); // Para que pueda recibir datos
 const rutas_articulo = require("./rutas/articulo");
 
 // Cargo las Rutas
-app.use("/api", rutas_articulo);
+app.use("/", rutas_articulo);
+
+
 
 // Rutas Prueba
 app.get("/probando", (req, res) => {
-  console.log("Se ha ejecutado el endpoint probando");
-  return res.status(200).send(`
-    <div>
-    <h1>Probando ruta con NodeJs</h1>
-    <p>Creando api Rest con Node</p>
-    </div>
-    `);
+  return res.status(200).json({
+    status: "success",
+    mensaje: "Probando el servidor de Node y Express",
+  });
 });
 
 // Crear servidor y escuchar peticiones http
 app.listen(puerto, () => {
   console.log("Servidor corriendo en el puerto" + puerto);
 });
+
+exports.api = functions.https.onRequest(app);
