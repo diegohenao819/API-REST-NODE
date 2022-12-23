@@ -4,7 +4,8 @@ require("dotenv").config();
 const conexion = async () => {
   try {
     await mongoose.connect(
-      `mongodb+srv://diegohenao819:${process.env.PASSWORD}@cluster0.lgv6vcv.mongodb.net/?retryWrites=true&w=majority`
+      // `mongodb+srv://diegohenao819:${process.env.PASSWORD}@cluster0.lgv6vcv.mongodb.net/?retryWrites=true&w=majority`
+      "mongodb://mongo:j7uuAUTbW2Ja4niG8jXm@containers-us-west-18.railway.app:7263"
     );
 
     console.log("Conectado a mi base de datos");
