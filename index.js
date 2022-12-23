@@ -35,4 +35,4 @@ app.listen(PORT, () => {
   console.log("Servidor corriendo en el puerto" + PORT);
 });
 
-exports.api = functions.https.onRequest(app);
+
