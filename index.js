@@ -6,7 +6,7 @@ conexion();
 
 // Crear servidor de Node
 const app = express();
-const puerto = 3090;
+const PORT = process.env.PORT || 3090;
 
 // Configuar cors
 app.use(cors());
@@ -22,8 +22,6 @@ const rutas_articulo = require("./rutas/articulo");
 // Cargo las Rutas
 app.use("/", rutas_articulo);
 
-
-
 // Rutas Prueba
 app.get("/probando", (req, res) => {
   return res.status(200).json({
@@ -33,8 +31,8 @@ app.get("/probando", (req, res) => {
 });
 
 // Crear servidor y escuchar peticiones http
-app.listen(puerto, () => {
-  console.log("Servidor corriendo en el puerto" + puerto);
+app.listen(PORT, () => {
+  console.log("Servidor corriendo en el puerto" + PORT);
 });
 
 exports.api = functions.https.onRequest(app);
