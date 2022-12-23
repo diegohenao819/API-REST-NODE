@@ -6,7 +6,7 @@ const conexion = async () => {
     await mongoose.connect(
       `mongodb+srv://diegohenao819:${process.env.PASSWORD}@cluster0.lgv6vcv.mongodb.net/?retryWrites=true&w=majority`
     );
-    mongoose.set("strictQuery", true);
+
     console.log("Conectado a mi base de datos");
   } catch (error) {
     console.log(error);
