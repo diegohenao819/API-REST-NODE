@@ -1,5 +1,4 @@
 const { conexion } = require("./basedatos/conexion");
-const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
 // Conectando a base de datos a través del archivo "Conexión.js"
