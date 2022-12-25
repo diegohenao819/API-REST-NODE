@@ -1,5 +1,5 @@
 const { conexion } = require("./basedatos/conexion");
-// const express = require("express");
+const express = require("express");
 const cors = require("cors");
 // Conectando a base de datos a través del archivo "Conexión.js"
 conexion();
