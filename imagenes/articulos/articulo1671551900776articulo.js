@@ -169,47 +169,48 @@ const editar = (req, res) => {
   );
 };
 
+const subir = (req, res) => {
+  // configurar multer
 
-const subir= (req, res) => {
-// configurar multer
-
-// recoger el fichero de la imagen que llega
-if(!req.files && !req.files){
+  // recoger el fichero de la imagen que llega
+  if (!req.files && !req.files) {
     return res.status(400).json({
-        status: 'error',
-        mensaje: 'No se ha subido ningun archivo'
-    })
-    
-}// nombre del archivo 
-let archivo = req.file.originalname;
+      status: "error",
+      mensaje: "No se ha subido ningun archivo",
+    });
+  } // nombre del archivo
+  let archivo = req.file.originalname;
 
-// extension del archivo
-let archivo_split = archivo.split('.');
-let extension = archivo_split[1];
+  // extension del archivo
+  let archivo_split = archivo.split(".");
+  let extension = archivo_split[1];
 
-// comprobar la extension, solo imagenes, si no es valida borrar el archivo
+  // comprobar la extension, solo imagenes, si no es valida borrar el archivo
 
-if(extension != 'png' && extension != 'jpg' && extension != 'jpeg' && extension != 'gif'){
+  if (
+    extension != "png" &&
+    extension != "jpg" &&
+    extension != "jpeg" &&
+    extension != "gif"
+  ) {
     // borrar el archivo subido
     fs.unlink(req.file.path, (error) => {
-    return res.status(400).json({
-        status: 'error',
-        mensaje: 'La extension de la imagen no es valida'
-    })
-    })
-}else{
-// si todo es valido, sacando el id del articulo y guardando la imagen con el nombre del id
+      return res.status(400).json({
+        status: "error",
+        mensaje: "La extension de la imagen no es valida",
+      });
+    });
+  } else {
+    // si todo es valido, sacando el id del articulo y guardando la imagen con el nombre del id
 
-// devolver respuesta
-return res.status(200).json({
-    status: 'success',
-    files: req.file,
-    extension
- 
-  })
+    // devolver respuesta
+    return res.status(200).json({
+      status: "success",
+      files: req.file,
+      extension,
+    });
+  }
 };
-}
-
 
 module.exports = {
   prueba,
@@ -218,5 +219,5 @@ module.exports = {
   uno,
   borrar,
   editar,
-  subir
+  subir,
 };
