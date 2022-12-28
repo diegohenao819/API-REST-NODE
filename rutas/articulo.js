@@ -23,7 +23,7 @@ router.get("/rutaprueba", ArticuloControlador.prueba);
 router.post("/crear", ArticuloControlador.crear);
 router.get("/articulos", ArticuloControlador.listar);
 
-router.get("/articulos/:id", ArticuloControlador.uno);
+router.get("/articulo/:id", ArticuloControlador.uno);
 
 router.delete("/articulos/:id", ArticuloControlador.borrar);
 router.put("/articulos/:id", ArticuloControlador.editar);
