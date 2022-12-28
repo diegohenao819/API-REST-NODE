@@ -1,8 +1,6 @@
 const { conexion } = require("./basedatos/conexion");
 const express = require("express");
 const cors = require("cors");
-import fileUpload from "express-fileupload";
-
 
 // Conectando a base de datos a través del archivo "Conexión.js"
 conexion();
@@ -17,10 +15,6 @@ app.use(cors());
 // Convertir body a objeto js
 app.use(express.json());
 
-upp.use(fileUpload({
-  useTempFiles: true,
-  tempFileDir: './uploads'
-}))
 // Convertir datos con content.type app/json
 app.use(express.urlencoded({ extended: true })); // Para que pueda recibir datos de un formulario urlencoded
 
